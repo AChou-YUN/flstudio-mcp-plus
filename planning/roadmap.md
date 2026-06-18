@@ -1,46 +1,62 @@
 # 🗺️ 产品路线图
 
-> 最后更新：2026-06-15
+> 最后更新：2026-06-18
+
+## Phase 0：调研与体验（当前）
+
+**目标：** 了解现有方案，确定技术方向
+
+- [x] 调研现有 FL Studio MCP 项目（flai-mcp、fl-studio-mcp）
+- [x] 分析信号原理差异（SysEx vs 文件队列）
+- [x] 梳理场景覆盖与痛点
+- [ ] 部署 flai-mcp，体验全功能控制
+- [ ] 部署 fl-studio-mcp，体验 Piano Roll 写入
+- [ ] 记录使用痛点与需求
 
 ## Phase 1：基础搭建（MVP）
 
 **目标：** 可用的 MCP Server，覆盖核心功能
 
-- [ ] 项目初始化（Python + FastMCP）
-- [ ] MIDI 通信层实现
-- [ ] FL Studio Controller Script
-- [ ] Transport 控制（播放/暂停/停止）
-- [ ] Mixer 基础控制（音量/声像）
-- [ ] Piano Roll 音符操作
-- [ ] macOS 支持
+- [ ] 搭建 MCP Server 基础框架（FastMCP）
+- [ ] 实现 MIDI SysEx 通信桥接
+- [ ] Transport 控制（播放/停止/录音/调速）
+- [ ] Mixer 基础控制（音量/声像/静音/独奏）
+- [ ] Channel Rack 控制
+- [ ] Pattern 管理（列表/切换/命名）
+- [ ] Windows loopMIDI 集成
 
-## Phase 2：功能完善
+## Phase 2：音符写入
 
-**目标：** 覆盖 P0 + P1 需求
+**目标：** 能通过 AI 写入旋律、和弦、鼓组
 
-- [ ] Channel Rack 完整控制
-- [ ] Plugin 参数控制
-- [ ] 步进音序器控制
-- [ ] Windows 支持
-- [ ] 自动触发机制
+- [ ] Step Sequencer 音符写入（鼓组）
+- [ ] Piano Roll 脚本集成（旋律/和弦/Bass）
+- [ ] 支持音高、力度、时值、微时序
+- [ ] 中文音乐术语理解（调性、拍号、进行）
 
 ## Phase 3：差异化创新
 
-**目标：** 突破现有项目限制
+**目标：** 突破现有方案限制
 
-- [ ] 探索插件加载方案
-- [ ] 探索 Pattern 创建方案
-- [ ] 中文自然语言支持
+- [ ] 融合 SysEx 控制 + Piano Roll 写入
+- [ ] 插件参数控制与预设切换
+- [ ] 工程管理自动化（命名/颜色/克隆）
+- [ ] 中文自然语言交互
 - [ ] OpenClaw 集成
 
-## Phase 4：生态建设
+## Phase 4：突破性功能
 
-**目标：** 建立社区和生态
+**目标：** 实现现有方案做不到的事
 
-- [ ] 完善文档
-- [ ] 示例和教程
-- [ ] 社区反馈迭代
+- [ ] Playlist clip 排列（探索 PyFLP / .flp 文件操作）
+- [ ] 自动导出分轨
+- [ ] 风格模板系统（progressive house / future bass 等）
+- [ ] 音频分析反馈（接入听觉模型）
 
----
+## 参考项目
 
-*此文件记录产品路线图*
+- [kaupau/flai-mcp](https://github.com/kaupau/flai-mcp) — SysEx 全功能控制（MIT）
+- [karl-andres/fl-studio-mcp](https://github.com/karl-andres/fl-studio-mcp) — Piano Roll 脚本
+- [PyFLP](https://github.com/demberto/PyFLP) — .flp 文件解析库
+- [music-copilot](https://github.com/TommyX12/music-copilot) — subprocess IPC 方案
+- [FL Studio API Stubs](https://il-group.github.io/FL-Studio-API-Stubs/) — 官方 API 文档
